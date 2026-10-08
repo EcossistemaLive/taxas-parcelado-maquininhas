@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudo Comparativo: Taxas de Parcelado nas Maquininhas — Casas Goianita</title>
+  
+  <!-- Fontes Oficiais do Manual da Marca Casas Goianita: Fira Sans + Art Déco Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,700&family=Cinzel:wght@600;700;800&family=Fira+Code:wght@400;500;600&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap">
+
+<style>
+/* ==========================================================================
+   CASAS GOIANITA — SISTEMA DE DESIGN & IDENTIDADE DA MARCA
+   Manual da Marca: "Tradição que Pulsa" · Goiânia 1930s Art Déco & Cerrado
+   Cores Oficiais:
+   - Verde Musgo:   #636D47 (Pantone 5763 C) - Base, Equilíbrio, Raiz
+   - Terra Vermelha: #A04622 (Pantone 7586 C) - Força, Alerta, Energia
+   - Dourado:        #BA8729 (Pantone 7556 C) - Excelência, No. 1, Prestígio
+   - Areia:          #E2DDD2 (Pantone Warm Gray 1 C) - Acolhimento, Linhas
+   ========================================================================== */
+
+:root {
+  --bg: #F8F6F0;                /* Linho / Papel editorial leve */
+  --surface: #FFFFFF;           /* Branco puro para cartões e tabelas */
+  --surface-warm: #FAF7F2;      /* Areia muito suave para alternância */
+  --ink: #1C231A;               /* Preto quente / Verde escuro profundo */
+  --muted: #5F6A56;             /* Cinza-musgo para textos de apoio */
+  --line: #E2DDD2;              /* Areia da marca para bordas sutis */
+  --line-strong: #CDC5B5;       /* Areia escurecida para ênfase */
+  
+  /* Cores Institucionais Goianita */
+  --musgo: #636D47;             /* Verde Musgo Oficial */
+  --musgo-soft: #EEF2E6;        /* Fundo verde suave */
+  --musgo-dark: #3E462B;        /* Verde musgo profundo */
+  
+  --terra: #A04622;             /* Terra Vermelha Oficial */
+  --terra-soft: #F9EFEB;        /* Fundo terra suave */
+  --terra-dark: #7D3417;        /* Terra profundo */
+  
+  --dourado: #BA8729;           /* Dourado Oficial */
+  --dourado-soft: #FAF3E6;      /* Fundo dourado suave */
+  
+  --areia: #E2DDD2;             /* Areia Oficial */
+  
+  /* Mapeamento Semântico */
+  --accent: var(--musgo);
+  --accent-soft: var(--musgo-soft);
+  --warn: var(--terra);
+  --warn-soft: var(--terra-soft);
+  --gold: var(--dourado);
+  --gold-soft: var(--dourado-soft);
+  --bar: #A3B28A;
+  
+  --font-display: "Playfair Display", "Bodoni Moda", Georgia, serif;
+  --font-deco: "Cinzel", "Playfair Display", serif;
+  --font-body: "Fira Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "Fira Code", monospace;
+  
+  --shadow-sm: 0 2px 8px rgba(28, 35, 26, 0.05);
+  --shadow-md: 0 6px 20px rgba(28, 35, 26, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131913;
+    --surface: #1B2319;
+    --surface-warm: #202A1F;
+    --ink: #F2EFE8;
+    --muted: #A1AD99;
+    --line: #2D392B;
+    --line-strong: #41513D;
+    
+    --accent: #8FA26C;
+    --accent-soft: #253320;
+    --warn: #E0734A;
+    --warn-soft: #381E15;
+    --gold: #DDB15D;
+    --gold-soft: #382C17;
+    --bar: #5C6E4A;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #131913;
+  --surface: #1B2319;
+  --surface-warm: #202A1F;
+  --ink: #F2EFE8;
+  --muted: #A1AD99;
+  --line: #2D392B;
+  --line-strong: #41513D;
+  
+  --accent: #8FA26C;
+  --accent-soft: #253320;
+  --warn: #E0734A;
+  --warn-soft: #381E15;
+  --gold: #DDB15D;
+  --gold-soft: #382C17;
+  --bar: #5C6E4A;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+/* Base & Layout Executivo Longform */
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after { box-sizing: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background-color: var(--bg);
+  /* Textura de fundo sutil: ruído estético suave e degradê orgânico de linho */
+  background-image: 
+    radial-gradient(ellipse at 15% 10%, rgba(99, 109, 71, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(160, 70, 34, 0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.022'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;            /* Tipografia C-Level 18px conforme regra */
+  line-height: 1.75;          /* Entrelinhas generoso 1.75 */
+  padding-inline: 20px;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--warn); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Barra de progresso no topo (Verde Musgo Goianita) */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(226, 221, 210, 0.4);
+  z-index: 9999;
+}
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--musgo), var(--dourado));
+  transition: width 0.1s linear;
+}
+
+/* Topbar Institucional Flutuante */
+.brand-topbar {
+  position: fixed;
+  top: 4px;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: rgba(248, 246, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand-topbar {
+    background: rgba(19, 25, 19, 0.92);
+  }
+}
+:root[data-theme="dark"] .brand-topbar {
+  background: rgba(19, 25, 19, 0.92);
+}
+.brand-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-topbar-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+.brand-topbar-tagline {
+  font-family: var(--font-deco);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-left: 1px solid var(--line-strong);
+  padding-left: 14px;
+}
+.brand-topbar-partner {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-topbar-partner strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Slides Executivos Verticais */
+.slide {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-block: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.slide:last-of-type { border-bottom: 0; }
+
+/* Eyebrow com herança Art Déco */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.eyebrow .num {
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(99, 109, 71, 0.2);
+}
+
+/* Tipografia de Destaque */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.12;
+  color: var(--ink);
+}
+h1 { font-size: clamp(2.5rem, 5.5vw, 4.2rem); }
+h2 { font-size: clamp(1.85rem, 3.8vw, 2.75rem); }
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin: 0;
+  color: var(--ink);
+}
+p { margin: 0; max-width: 70ch; }
+.lead {
+  font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+  color: var(--muted);
+  max-width: 64ch;
+  line-height: 1.65;
+}
+.mono, td.n, th.n {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.note {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Caixa de destaque oficial (Terra Vermelha / Alerta Governança) */
+.callout {
+  background: var(--warn-soft);
+  border-left: 5px solid var(--warn);
+  padding: 20px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  border-top: 1px solid rgba(160, 70, 34, 0.15);
+  border-right: 1px solid rgba(160, 70, 34, 0.15);
+  border-bottom: 1px solid rgba(160, 70, 34, 0.15);
+}
+.callout strong {
+  font-weight: 700;
+  color: var(--warn);
+}
+
+/* Capa Institucional Goianita */
+.brand-hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+.brand-hero-logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+.brand-hero-tagline {
+  font-family: var(--font-deco);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--musgo);
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brand-hero-tagline small {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.cover-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.chip {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--muted);
+  box-shadow: var(--shadow-sm);
+}
+
+.range {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 860px;
+}
+.stat {
+  padding: 22px 24px;
+  border-top: 4px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 0 6px 6px;
+  box-shadow: var(--shadow-sm);
+  border-inline: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.stat.hi { border-top-color: var(--warn); }
+.stat.gold { border-top-color: var(--gold); }
+.stat .v {
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.stat.hi .v { color: var(--warn); }
+.stat.gold .v { color: var(--gold); }
+.stat .v small { font-size: 0.48em; color: var(--muted); font-weight: 500; }
+.stat .l { font-size: 15px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+
+/* Mensagem Central / Teses */
+.thesis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.pole {
+  padding: 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  box-shadow: var(--shadow-sm);
+}
+.pole .big {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.pole.bad { border-top: 4px solid var(--warn); }
+.pole.bad .big { color: var(--warn); }
+.pole.good { border-top: 4px solid var(--accent); }
+.pole.good .big { color: var(--accent); }
+
+.scope {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.scope div {
+  padding: 16px 18px 16px 0;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.scope dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scope dd { margin: 6px 0 0; font-weight: 500; font-size: 17px; }
+
+/* Tabelas com Padrão Editorial */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 660px;
+  font-size: 16px;
+}
+th, td {
+  padding: 13px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+th {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  background: var(--surface-warm);
+}
+th.n, td.n { text-align: right; }
+tr:last-child td { border-bottom: 0; }
+td.bar-cell { width: 34%; min-width: 160px; }
+.bar {
+  height: 12px;
+  background: var(--bar);
+  width: calc(var(--v) * 100% / 33.15);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+tr.focus td { background: var(--warn-soft); }
+tr.focus .bar, tr.worst .bar { background: var(--warn); }
+tr.best .bar { background: var(--accent); }
+tr.best td:first-child, tr.focus td:first-child { font-weight: 600; }
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: 2px;
+  display: inline-block;
+}
+.tag.best { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.tag.focus { background: var(--warn); color: #FFF; }
+.tag.venture { background: #E8F0FE; color: #1A56DB; font-weight: 600; border: 1px solid #B4C6FC; }
+.tag.gold { background: var(--gold-soft); color: #8A6114; font-weight: 700; border: 1px solid var(--gold); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.gold { color: #EAC678; }
+  :root:not([data-theme="light"]) .tag.venture { background: #1E293B; color: #93C5FD; border-color: #3B82F6; }
+}
+:root[data-theme="dark"] .tag.gold { color: #EAC678; }
+:root[data-theme="dark"] .tag.venture { background: #1E293B; color: #93C5FD; border-color: #3B82F6; }
+
+tr.mine td { background: var(--accent-soft); }
+tr.mine td:nth-child(2), tr.mine td:first-child { font-weight: 600; }
+.tag.mine { background: var(--accent); color: #FFF; }
+
+tr.gold-row td { background: var(--gold-soft); }
+tr.gold-row td:first-child, tr.gold-row td:nth-child(2) { font-weight: 700; }
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Cards das Operadoras */
+.trio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.quad {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.op {
+  padding: 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  box-shadow: var(--shadow-sm);
+}
+.op.highlight-venture {
+  border: 2px solid var(--musgo);
+  background: var(--surface-warm);
+}
+.op .k {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.op .k.warn { color: var(--warn); }
+.op .k.muted { color: var(--muted); }
+.op .k.gold { color: var(--gold); }
+.op .k.musgo { color: var(--musgo); }
+.op .lbl {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Recebimento Parcelado */
+.flat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.flat .op .k { color: var(--accent); }
+
+/* Gráfico Líquido (Simulação R$ 1.000) */
+.net {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+.net-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: 8px 20px;
+  align-items: center;
+}
+.net-row .who { font-size: 15px; min-width: 0; line-height: 1.4; }
+.net-row .who small { display: block; color: var(--muted); font-size: 13px; }
+.net-track {
+  position: relative;
+  height: 32px;
+  background: var(--surface-warm);
+  border-radius: 4px;
+  min-width: 0;
+}
+.net-fill {
+  height: 100%;
+  width: calc(var(--v) * 100% / 1000);
+  background: var(--bar);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.net-fill span {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.net-row.mine .net-fill { background: var(--accent); }
+.net-row.mine .net-fill span { color: #FFF; }
+.net-row.mine .who { font-weight: 600; }
+
+.net-row.gold-row .net-fill { background: linear-gradient(90deg, #A57924, var(--gold)); }
+.net-row.gold-row .net-fill span { color: #FFF; }
+.net-row.gold-row .who { font-weight: 700; color: var(--ink); }
+
+.net-row.venture .net-fill { background: #3B82F6; }
+.net-row.venture .net-fill span { color: #FFF; }
+
+.net-row.top .net-fill { background: var(--accent); }
+.net-row.top .net-fill span { color: #FFF; }
+.net-row.low .net-fill { background: var(--warn); }
+.net-row.low .net-fill span { color: #FFF; }
+
+.axis {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: 20px;
+  margin-top: 4px;
+}
+.axis .ticks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+@media (max-width: 600px) {
+  .net-row, .axis { grid-template-columns: 1fr; }
+  .axis > span:first-child { display: none; }
+}
+
+/* Escala e Impacto */
+.scale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Recomendações Estratégicas */
+.recs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0;
+  border-top: 2px solid var(--ink);
+}
+.rec {
+  padding: 22px 24px 22px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.rec .who {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+.rec.highlight {
+  background: var(--surface-warm);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-block: 8px;
+}
+.rec.highlight .who { color: var(--warn); }
+
+.cautions {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 76ch;
+  line-height: 1.7;
+}
+
+/* Fontes */
+.sources {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.sources li {
+  padding: 16px 20px 16px 0;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+}
+.sources li span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.src { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* Navegação Flutuante com Estética Art Déco */
+.nav {
+  position: fixed;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+}
+.nav button {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+.nav button:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.nav .count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 58px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .brand-topbar { padding: 0 16px; }
+  .brand-topbar-tagline { display: none; }
+  .slide { min-height: auto; padding-block: 64px 64px; }
+  html { scroll-snap-type: none; }
+  body { font-size: 16px; padding-inline: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Barra de progresso contínua no topo -->
+<div id="progress-container"><div id="progress-bar"></div></div>
+
+<!-- Barra de cabeçalho executiva -->
+<header class="brand-topbar" aria-label="Cabeçalho Institucional">
+  <div class="brand-topbar-left">
+    <img src="logo_goianita_horizontal.png" alt="Casas Goianita" class="brand-topbar-logo" onerror="this.style.display='none'">
+    <span class="brand-topbar-tagline">Tradição que Pulsa · Desde 1953</span>
+  </div>
+  <div class="brand-topbar-partner">
+    <span>Governança &amp; Inteligência Estratégica · <strong>Live Consultoria</strong></span>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. Capa Institucional -->
+<section class="slide" id="capa">
+  <div class="brand-hero-badge">
+    <img src="logo_goianita_horizontal.png" alt="Casas Goianita — Tradição que Pulsa" class="brand-hero-logo" onerror="this.style.display='none'">
+  </div>
+
+  <div class="eyebrow">
+    <span class="num">01</span>
+    <span>Pesquisa Comparativa de Meios de Pagamento · Outubro de 2026</span>
+  </div>
+  
+  <h1>Quanto custa receber uma venda parcelada na maquininha</h1>
+  <p class="lead">Taxas de crédito parcelado da Cielo, Stone, VenturePay e das principais adquirentes do mercado nacional (planos vigentes em 01/10/2026) confrontadas com o benchmark contratual exclusivo da Casas Goianita.</p>
+  
+  <div class="range">
+    <div class="stat">
+      <div class="v">11,04<small>%</small></div>
+      <div class="l">menor taxa de mercado no 12x antecipado (Yelly)</div>
+    </div>
+    <div class="stat hi">
+      <div class="v">33,15<small>%</small></div>
+      <div class="l">maior taxa de mercado no 12x antecipado (Vero)</div>
+    </div>
+    <div class="stat gold">
+      <div class="v">2,69<small>%</small></div>
+      <div class="l">taxa Goianita · Visa no 12x (Cielo negociada)</div>
+    </div>
+  </div>
+  
+  <div class="cover-meta">
+    <span class="chip">Pessoa Jurídica (PJ)</span>
+    <span class="chip">Bandeiras Mastercard e Visa</span>
+    <span class="chip">Benchmark VenturePay (POS &amp; Link D+1)</span>
+    <span class="chip">Planos Balcão vs Acordo Comercial Goianita</span>
+    <span class="chip">Sem Distorções Promocionais</span>
+  </div>
+</section>
+
+<!-- 2. Mensagem central -->
+<section class="slide" id="mensagem">
+  <div class="eyebrow"><span class="num">02</span><span>A conclusão executiva principal</span></div>
+  <h2>O tipo de recebimento pesa mais do que a marca da maquininha</h2>
+  <p class="lead">Na mesma venda parcelada em 12x, o lojista desembolsa de 11% a 33% quando antecipa o fluxo. Já ao aceitar receber cada parcela no mês em que o cliente paga, o custo cai para perto de 3%.</p>
+  
+  <div class="thesis">
+    <div class="pole bad">
+      <span class="eyebrow">Recebimento antecipado</span>
+      <span class="big">11–33%</span>
+      <p>O valor total é liberado em até 2 dias úteis (ou D+1 como na VenturePay). A operadora adianta o capital de giro e cobra um spread agressivo. É o plano padrão empurrado pela maioria das adquirentes.</p>
+    </div>
+    <div class="pole good">
+      <span class="eyebrow">Recebimento parcelado</span>
+      <span class="big">2,69–3,99%</span>
+      <p>Cada parcela é creditada de 30 em 30 dias. A taxa é muito próxima à do crédito à vista, garantindo a preservação total da margem comercial do lojista.</p>
+    </div>
+  </div>
+  
+  <dl class="scope">
+    <div><dt>Perfil da Empresa</dt><dd>Pessoa Jurídica (PJ)</dd></div>
+    <div><dt>Bandeiras Analisadas</dt><dd>Mastercard, Visa, Elo, Hiper e Amex</dd></div>
+    <div><dt>Natureza dos Planos</dt><dd>Entrada balcão vs VenturePay vs Tabela Goianita</dd></div>
+    <div><dt>Data dos Dados</dt><dd class="mono">01/10/2026</dd></div>
+  </dl>
+</section>
+
+<!-- 3. Tabela antecipado -->
+<section class="slide" id="antecipado">
+  <div class="eyebrow"><span class="num">03</span><span>Recebimento antecipado · até 2 dias úteis (D+1 e D+2)</span></div>
+  <h2>Comparativo de taxas no crédito parcelado público</h2>
+  <p class="lead">Ordenado da menor para a maior taxa em 12x. A barra gráfica demonstra a dispersão de custo na mesma escala para todas as operadoras, incluindo as opções de maquininha física e link online da VenturePay.</p>
+  
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Operadora / Plano</th><th class="n">2x</th><th class="n">6x</th><th class="n">12x</th><th>12x na Escala de Custo</th></tr>
+      </thead>
+      <tbody>
+        <tr class="best"><td>Yelly <span class="tag best">menor mercado</span></td><td class="n">4,31%</td><td class="n">7,08%</td><td class="n">11,04%</td><td class="bar-cell"><div class="bar" style="--v:11.04"></div></td></tr>
+        <tr><td>TapTon (Ton, no celular)</td><td class="n">5,75%</td><td class="n">8,65%</td><td class="n">12,29%</td><td class="bar-cell"><div class="bar" style="--v:12.29"></div></td></tr>
+        <tr><td>PicPay</td><td class="n">6,07%</td><td class="n">8,19%</td><td class="n">12,38%</td><td class="bar-cell"><div class="bar" style="--v:12.38"></div></td></tr>
+        <tr><td>Ton Black</td><td class="n">5,38%</td><td class="n">8,27%</td><td class="n">12,39%</td><td class="bar-cell"><div class="bar" style="--v:12.39"></div></td></tr>
+        <tr><td>InfinitePay</td><td class="n">5,39%</td><td class="n">8,28%</td><td class="n">12,40%</td><td class="bar-cell"><div class="bar" style="--v:12.40"></div></td></tr>
+        <tr style="background: rgba(59, 130, 246, 0.05);"><td><strong>VenturePay (Maquininha D+1)</strong> <span class="tag venture">VenturePay POS</span></td><td class="n">5,56%</td><td class="n">8,24%</td><td class="n"><strong>12,53%</strong></td><td class="bar-cell"><div class="bar" style="--v:12.53; background: #3B82F6;"></div></td></tr>
+        <tr><td>Getnet (maquininha)</td><td class="n">7,98%</td><td class="n">9,94%</td><td class="n">12,88%</td><td class="bar-cell"><div class="bar" style="--v:12.88"></div></td></tr>
+        <tr><td>SumUp</td><td class="n">6,49%</td><td class="n">9,49%</td><td class="n">13,99%</td><td class="bar-cell"><div class="bar" style="--v:13.99"></div></td></tr>
+        <tr style="background: rgba(59, 130, 246, 0.03);"><td>VenturePay (Link de Pagamento D+1) <span class="tag venture">VenturePay Link</span></td><td class="n">6,83%</td><td class="n">10,77%</td><td class="n">15,36%</td><td class="bar-cell"><div class="bar" style="--v:15.36; background: #60A5FA;"></div></td></tr>
+        <tr><td>Cielo Tap (no celular)</td><td class="n">5,97%</td><td class="n">10,01%</td><td class="n">16,07%</td><td class="bar-cell"><div class="bar" style="--v:16.07"></div></td></tr>
+        <tr><td>C6 Pay</td><td class="n">4,08%</td><td class="n">9,24%</td><td class="n">16,98%</td><td class="bar-cell"><div class="bar" style="--v:16.98"></div></td></tr>
+        <tr class="focus"><td>Cielo (maquininha balcão) <span class="tag focus">Cielo Balcão</span></td><td class="n">6,68%</td><td class="n">11,72%</td><td class="n">19,78%</td><td class="bar-cell"><div class="bar" style="--v:19.78"></div></td></tr>
+        <tr><td>Ton (plano básico)</td><td class="n">9,86%</td><td class="n">15,22%</td><td class="n">20,39%</td><td class="bar-cell"><div class="bar" style="--v:20.39"></div></td></tr>
+        <tr class="worst"><td>Vero (Banrisul)</td><td class="n">7,55%</td><td class="n">17,79%</td><td class="n">33,15%</td><td class="bar-cell"><div class="bar" style="--v:33.15"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Fontes: <a href="https://www.calculadoradetaxas.com.br/comparativo-de-taxas/antecipado/ate-2-dias-uteis/pessoa_juridica/master_visa" target="_blank" rel="noopener">Calculadora de Taxas · Comparativo PJ Master/Visa</a> (01/10/2026) e Proposta Comercial Oficial VenturePay (Outubro/2026, CNPJ 53.768.953/0001-60).</p>
+</section>
+
+<!-- 4. Rede, MP/PagBank, Stone & VenturePay -->
+<section class="slide" id="outras">
+  <div class="eyebrow"><span class="num">04</span><span>Operadoras com modelos específicos &amp; Hubs Digitais</span></div>
+  <h2>Rede, Mercado Pago, Stone e VenturePay</h2>
+  <p class="lead">Soluções que operam com regras customizadas de liquidação, liquidação no mesmo dia ou infraestrutura digital especializada para e-commerce e loja física.</p>
+  
+  <div class="quad">
+    <div class="op highlight-venture">
+      <span class="lbl">VenturePay · Maquininha (D+1)</span>
+      <span class="k musgo">12,53%</span>
+      <p><strong>Antecipação D+1 Automática:</strong> Débito a 1,99%, Pix a 0,85%, crédito à vista a 3,82% e 12x a 12,53%. Oferece parcelamento estendido inédito em até <strong>24x (21,52%)</strong> na maquininha. Taxas negociáveis a partir de R$ 100 mil/mês.</p>
+      <p class="src">Tabela Oficial VenturePay · Maquininha POS</p>
+    </div>
+
+    <div class="op highlight-venture">
+      <span class="lbl">VenturePay · Link &amp; API (D+1)</span>
+      <span class="k musgo">15,36%</span>
+      <p><strong>E-commerce com Tecnologia 3DS:</strong> Autenticação bancária silenciosa com transferência de responsabilidade (chargeback zero por fraude). 12x a 15,36% D+1, Pix a R$ 1,99 fixo e boleto a R$ 4,00.</p>
+      <p class="src">Tabela Oficial VenturePay · Link / API</p>
+    </div>
+
+    <div class="op">
+      <span class="lbl">Rede (Itaú) · 12x</span>
+      <span class="k warn">26,86%</span>
+      <p>Apresenta plano público único balcão, com liquidação em 2 dias úteis, débito a 1,99% e crédito à vista a 4,97%. Clientes corporativos com grande giro demandam negociação sob medida com a gerência do Itaú.</p>
+      <p class="src"><a href="https://www.calculadoradetaxas.com.br/public/rede" target="_blank" rel="noopener">Calculadora de Taxas · Rede</a></p>
+    </div>
+
+    <div class="op">
+      <span class="lbl">Stone · 12x</span>
+      <span class="k muted">Negociada</span>
+      <p>Não publica tabela oficial aberta. As taxas são precificadas por cliente conforme volume, risco e prazo. O POS é fornecido em comodato mediante cumprimento de meta de volume mensal.</p>
+      <p class="src"><a href="https://www.calculadoradetaxas.com.br/public/stone" target="_blank" rel="noopener">Calculadora de Taxas · Stone</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Recebimento parcelado -->
+<section class="slide" id="parcelado">
+  <div class="eyebrow"><span class="num">05</span><span>Recebimento parcelado · de 30 em 30 dias</span></div>
+  <h2>Quem tem fôlego de caixa paga perto de 3% no 12x</h2>
+  <p class="lead">Nessa estrutura, cada parcela é recebida no mês de vencimento da fatura do comprador. Atualmente, apenas três operadoras abrem esse modelo publicamente sem exigência de volume prévio.</p>
+  
+  <div class="flat">
+    <div class="op">
+      <span class="lbl">C6 Pay</span>
+      <span class="k">2,79%</span>
+      <p>Taxa fixa única de 2x até 12x. Crédito à vista estabelecido em 2,39%.</p>
+    </div>
+    <div class="op">
+      <span class="lbl">SumUp</span>
+      <span class="k">2,99–3,49%</span>
+      <p>Pratica 2,99% para faixas de 2x a 6x e eleva para 3,49% no intervalo de 7x a 12x.</p>
+    </div>
+    <div class="op">
+      <span class="lbl">Get Tap (Getnet)</span>
+      <span class="k">3,99%</span>
+      <p>Taxa linear independente do número de prestações contratadas.</p>
+    </div>
+  </div>
+  
+  <p>A InfinitePay disponibiliza modalidade parcelada escalonada por volume: 12x a partir de 2,75% para Mastercard e Visa em faixas de faturamento de R$ 20 mil a R$ 40 mil mensais.</p>
+  <p class="src">Fontes: <a href="https://www.calculadoradetaxas.com.br/comparativo-de-taxas/nao-antecipado/30-em-30-dias/pessoa_juridica/master_visa" target="_blank" rel="noopener">Calculadora de Taxas · Recebimento parcelado 30 dias</a> (15/09/2026) · <a href="https://www.calculadoradetaxas.com.br/public/blog/qual-maquininha-infinitepay-comprar" target="_blank" rel="noopener">Análise InfinitePay 2026</a>.</p>
+</section>
+
+<!-- 6. Taxas atuais da Goianita -->
+<section class="slide" id="goianita">
+  <div class="eyebrow"><span class="num">06</span><span>Tabela Homologada Goianita · Portal Cielo, 07/10/2026</span></div>
+  <h2>Virtuais e Castor Utilidades possuem a mesma grade de cartão</h2>
+  <p class="lead">A gerência corporativa da Cielo padronizou a Castor Utilidades na mesma tabela contratual do grupo Virtuais. As taxas de cartão são rigorosamente idênticas; apenas a taxa do Pix diverge. O recebimento é feito sem antecipação (à vista em 31 dias e parcelado loja em 31 dias por parcela).</p>
+  
+  <!-- Destaque Obrigatório de Negociação & Faturamento -->
+  <div class="callout">
+    <div><strong>⚠️ Condição sob Negociação:</strong> Vale ressaltar com destaque que esta grade não é de contratação pública ou balcão. A concessão e a manutenção dessa grade de taxas <strong>dependem diretamente do volume de faturamento</strong> da empresa e de <strong>negociação comercial prévia formalizada com a operadora</strong>.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Bandeira</th><th class="n">Débito</th><th class="n">Crédito à Vista</th><th class="n">2x a 6x</th><th class="n">7x a 12x</th></tr>
+      </thead>
+      <tbody>
+        <tr class="gold-row">
+          <td><span class="rank-badge">1</span> Visa <span class="tag gold">Melhor do Ranking</span></td>
+          <td class="n">0,79%</td>
+          <td class="n">2,10%</td>
+          <td class="n">2,30%</td>
+          <td class="n">2,69%</td>
+        </tr>
+        <tr class="mine">
+          <td>Mastercard <span class="tag mine">Goianita</span></td>
+          <td class="n">0,85%</td>
+          <td class="n">2,20%</td>
+          <td class="n">2,69%</td>
+          <td class="n">2,99%</td>
+        </tr>
+        <tr>
+          <td>Elo</td>
+          <td class="n">0,85%</td>
+          <td class="n">2,13%</td>
+          <td class="n">2,53%</td>
+          <td class="n">2,69%</td>
+        </tr>
+        <tr>
+          <td>Diners</td>
+          <td class="n">—</td>
+          <td class="n">2,20%</td>
+          <td class="n">2,46%</td>
+          <td class="n">2,85%</td>
+        </tr>
+        <tr>
+          <td>Amex</td>
+          <td class="n">—</td>
+          <td class="n">2,50%</td>
+          <td class="n">3,00%</td>
+          <td class="n">3,00%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <p class="note">Visa, Mastercard e Elo constam em ambos os contratos com índices rigorosamente iguais. Diners e Amex foram extraídos dos registros das Virtuais. Prazos: Pix no mesmo dia, débito em 1 dia útil, crédito à vista em 31 dias, parcelado loja em 31 dias a cada parcela. <strong>Nota:</strong> Essa taxa depende diretamente do faturamento e de negociação prévia com a operadora.</p>
+  
+  <div class="trio">
+    <div class="op">
+      <span class="lbl">Aderência à Tabela Pública?</span>
+      <span class="k warn">Não</span>
+      <p>A tabela pública balcão da Cielo cobra 19,78% no 12x antecipado. A Casas Goianita usufrui de condição negociada em bloco por volume histórico, sem antecipação, inexistente em comparadores abertos — <strong>condição que depende diretamente do faturamento e de negociação prévia com a adquirente</strong>.</p>
+    </div>
+    <div class="op">
+      <span class="lbl">Visa no 12x (Goianita)</span>
+      <span class="k gold">2,69%</span>
+      <p>Supera o C6 Pay (2,79%) e a VenturePay (12,53%), posicionando-se como a menor taxa de todo o mercado brasileiro no recebimento parcelado. Na faixa de 2x a 6x, a Visa opera em 2,30%.</p>
+    </div>
+    <div class="op">
+      <span class="lbl">Cenário Pré-Padronização</span>
+      <span class="k muted">&gt; 3,00%</span>
+      <p>Por ser um CNPJ recém-aberto e sem histórico consolidado, a Castor Utilidades arcava com tarifas superiores a 3% até a intervenção da gerência Cielo igualar os parâmetros aos das Virtuais.</p>
+    </div>
+  </div>
+  
+  <p class="src">Fontes: PLANO DE TARIFAS CIELO - VIRTUAIS.pdf e PLANO DE TARIFAS CIELO - CASTOR UTILIDADES.pdf (Portal Minha Conta Cielo, 07/10/2026); comprovações Amex e Diners fornecidas pela controladoria Casas Goianita.</p>
+</section>
+
+<!-- 7. Dois planos -->
+<section class="slide" id="planos">
+  <div class="eyebrow"><span class="num">07</span><span>Contratos Corporativos · Virtuais × Castor Utilidades</span></div>
+  <h2>Dois contratos distintos convergem para a mesma grade de cartões</h2>
+  <p class="lead">A distinção substancial entre as entidades reside na base de faturamento acordada para respaldar o contrato e no custo percentual cobrado sobre transações via Pix.</p>
+  
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Parâmetro Contratual</th><th>Virtuais (CNPJ 135 + E-commerce)</th><th>Castor Utilidades</th><th>Benchmark VenturePay</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Modalidade Contratada</td><td>Plano Seu Jeito (Cielo)</td><td>Plano Postecipado (Cielo)</td><td>Antecipação D+1 Automática</td></tr>
+        <tr><td>Canal Operacional</td><td>API E-commerce</td><td>Aluguel de POS Físico</td><td>Maquininha Smart / API 3DS</td></tr>
+        <tr><td>Garantia de Volume Negociada</td><td>Faturamento Físico de R$ 500 mil a R$ 1 milhão</td><td>Meta de Faturamento de R$ 30 mil/mês</td><td>A partir de R$ 100 mil/mês</td></tr>
+        <tr><td>Cartões de Crédito (12x)</td><td>2,69% (Visa) / 2,99% (Master)</td><td>Mesma Grade Homologada</td><td>12,53% (POS) / 15,36% (Link)</td></tr>
+        <tr class="focus"><td>Taxa Pix</td><td class="n"><strong>0,48%</strong></td><td class="n"><strong>0,99%</strong> (Oportunidade)</td><td class="n">0,85% (POS) / R$ 1,99 fixo</td></tr>
+        <tr><td>Histórico do Acordo</td><td>Relação Comercial Consolidada</td><td>Pactuado em 31/01/2026 · Vigência até 01/01/2027</td><td>Proposta Comercial Ativa (2026)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="trio">
+    <div class="op">
+      <span class="lbl">Faturamento Castor (Outubro/2026)</span>
+      <span class="k gold">R$ 44.986,69</span>
+      <p>Em apenas 7 dias transcorridos no mês, a Castor já atingiu 150% da meta mensal acordada de R$ 30 mil, restando ainda 24 dias úteis de vendas.</p>
+    </div>
+    <div class="op">
+      <span class="lbl">Divergência Tarifária no Pix</span>
+      <span class="k warn">2× mais caro</span>
+      <p>A cada R$ 10.000 transacionados em Pix, a Castor recolhe R$ 99,00 à Cielo, contra R$ 48,00 pagos pelas Virtuais. (Na VenturePay Maquininha seriam R$ 85,00).</p>
+    </div>
+    <div class="op">
+      <span class="lbl">Nova Filial Castor (Novo EC)</span>
+      <span class="k muted">Em Análise</span>
+      <p>A proposta tarifária ainda não foi emitida. Há risco iminente de elevação caso a adquirente encare a filial como empresa isolada sem faturamento, em vez de grupo econômico.</p>
+    </div>
+  </div>
+  
+  <p class="src">Fontes: Contratos de Tarifas Cielo de ambas as empresas; Extrato de Faturamento da Castor (07/10/2026); Tabela Oficial VenturePay.</p>
+</section>
+
+<!-- 8. Ranking geral -->
+<section class="slide" id="ranking">
+  <div class="eyebrow"><span class="num">08</span><span>Ranking Geral Consolidado · Crédito Parcelado em 12x</span></div>
+  <h2>Com bandeira Visa, a Casas Goianita ocupa o 1º lugar absoluto</h2>
+  <p class="lead">Visão unificada ordenada pelo menor custo em 12x, incluindo a grade negociada da Casas Goianita e a VenturePay frente a todas as adquirentes do país. Na bandeira Visa, a Goianita lidera o ranking geral de 12x e 6x; na bandeira Mastercard, conquista a 3ª posição nacional.</p>
+  
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th class="n">Pos.</th><th>Operadora / Plano Contratual</th><th>Modelo de Liquidação</th><th class="n">6x</th><th class="n">12x</th><th class="n">Valor Líquido (Venda R$ 1.000)</th></tr>
+      </thead>
+      <tbody>
+        <tr class="gold-row">
+          <td class="n"><span class="rank-badge">1</span></td>
+          <td><strong>Casas Goianita · Visa</strong> (Cielo Negociada) <span class="tag gold">#1 Líder Nacional</span></td>
+          <td>31 dias por parcela</td>
+          <td class="n"><strong>2,30%</strong></td>
+          <td class="n"><strong>2,69%</strong></td>
+          <td class="n"><strong>R$ 973,10</strong></td>
+        </tr>
+        <tr class="best">
+          <td class="n">2</td>
+          <td>C6 Pay</td>
+          <td>Parcelado de 30 em 30 dias</td>
+          <td class="n">2,79%</td>
+          <td class="n">2,79%</td>
+          <td class="n">R$ 972,10</td>
+        </tr>
+        <tr class="mine">
+          <td class="n">3</td>
+          <td><strong>Casas Goianita · Mastercard</strong> (Cielo Negociada) <span class="tag mine">Top 3 Nacional</span></td>
+          <td>31 dias por parcela</td>
+          <td class="n">2,69%</td>
+          <td class="n">2,99%</td>
+          <td class="n">R$ 970,10</td>
+        </tr>
+        <tr><td class="n">4</td><td>SumUp</td><td>Parcelado de 30 em 30 dias</td><td class="n">2,99%</td><td class="n">3,49%</td><td class="n">R$ 965,10</td></tr>
+        <tr><td class="n">5</td><td>Get Tap (Getnet)</td><td>Parcelado de 30 em 30 dias</td><td class="n">3,99%</td><td class="n">3,99%</td><td class="n">R$ 960,10</td></tr>
+        <tr><td class="n">6</td><td>Yelly</td><td>Antecipado em até 2 dias</td><td class="n">7,08%</td><td class="n">11,04%</td><td class="n">R$ 889,60</td></tr>
+        <tr><td class="n">7</td><td>TapTon (Ton)</td><td>Antecipado em até 2 dias</td><td class="n">8,65%</td><td class="n">12,29%</td><td class="n">R$ 877,10</td></tr>
+        <tr><td class="n">8</td><td>PicPay</td><td>Antecipado em até 2 dias</td><td class="n">8,19%</td><td class="n">12,38%</td><td class="n">R$ 876,20</td></tr>
+        <tr><td class="n">8</td><td>Point Tap (Mercado Pago)</td><td>Antecipado no mesmo dia</td><td class="n">8,19%</td><td class="n">12,38%</td><td class="n">R$ 876,20</td></tr>
+        <tr><td class="n">10</td><td>Ton Black</td><td>Antecipado em até 2 dias</td><td class="n">8,27%</td><td class="n">12,39%</td><td class="n">R$ 876,10</td></tr>
+        <tr><td class="n">11</td><td>InfinitePay</td><td>Antecipado em até 2 dias</td><td class="n">8,28%</td><td class="n">12,40%</td><td class="n">R$ 876,00</td></tr>
+        <tr style="background: rgba(59, 130, 246, 0.05);"><td class="n"><strong>12</strong></td><td><strong>VenturePay (Maquininha D+1)</strong> <span class="tag venture">VenturePay POS</span></td><td>Antecipado em 1 dia (D+1)</td><td class="n"><strong>8,24%</strong></td><td class="n"><strong>12,53%</strong></td><td class="n"><strong>R$ 874,70</strong></td></tr>
+        <tr><td class="n">13</td><td>Getnet (maquininha)</td><td>Antecipado em até 2 dias</td><td class="n">9,94%</td><td class="n">12,88%</td><td class="n">R$ 871,20</td></tr>
+        <tr><td class="n">14</td><td>SumUp</td><td>Antecipado em até 2 dias</td><td class="n">9,49%</td><td class="n">13,99%</td><td class="n">R$ 860,10</td></tr>
+        <tr style="background: rgba(59, 130, 246, 0.03);"><td class="n"><strong>15</strong></td><td>VenturePay (Link de Pagamento D+1) <span class="tag venture">VenturePay Link</span></td><td>Antecipado em 1 dia (D+1)</td><td class="n">10,77%</td><td class="n">15,36%</td><td class="n">R$ 846,40</td></tr>
+        <tr><td class="n">16</td><td>Cielo Tap</td><td>Antecipado em até 2 dias</td><td class="n">10,01%</td><td class="n">16,07%</td><td class="n">R$ 839,30</td></tr>
+        <tr><td class="n">17</td><td>C6 Pay</td><td>Antecipado em até 2 dias</td><td class="n">9,24%</td><td class="n">16,98%</td><td class="n">R$ 830,20</td></tr>
+        <tr class="focus"><td class="n">18</td><td>Cielo (Tabela Balcão Pública)</td><td>Antecipado em até 2 dias</td><td class="n">11,72%</td><td class="n">19,78%</td><td class="n">R$ 802,20</td></tr>
+        <tr><td class="n">19</td><td>Ton (plano básico)</td><td>Antecipado em até 2 dias</td><td class="n">15,22%</td><td class="n">20,39%</td><td class="n">R$ 796,10</td></tr>
+        <tr><td class="n">20</td><td>Mercado Pago / PagBank</td><td>Antecipado no mesmo dia</td><td class="n">15,27%</td><td class="n">22,59%</td><td class="n">R$ 774,10</td></tr>
+        <tr><td class="n">21</td><td>Rede (Itaú Balcão)</td><td>Antecipado em 2 dias úteis</td><td class="n">—</td><td class="n">26,86%</td><td class="n">R$ 731,40</td></tr>
+        <tr class="worst"><td class="n">22</td><td>Vero (Banrisul)</td><td>Antecipado em até 2 dias</td><td class="n">17,79%</td><td class="n">33,15%</td><td class="n">R$ 668,50</td></tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <p class="note">Critérios: Os planos públicos refletem condições de entrada para PJ sem faturamento mínimo exigido. As taxas da Casas Goianita decorrem de negociação corporativa institucional. Em Elo, a Goianita recolhe 2,53% até 6x e 2,69% no 12x (empatando com a Visa na liderança). A Stone foi omitida pela ausência de tabela aberta auditável. A VenturePay opera com D+1 nas bandeiras Master, Visa, Elo, Amex e Hipercard.</p>
+</section>
+
+<!-- 9. Venda de R$ 1.000 -->
+<section class="slide" id="simulacao">
+  <div class="eyebrow"><span class="num">09</span><span>Simulação Executiva</span></div>
+  <h2>Retorno líquido efetivo numa transação de R$ 1.000 em 12x</h2>
+  <p class="lead">Demonstração do montante que efetivamente ingressa no caixa do lojista após o desconto integral da taxa da maquininha.</p>
+  
+  <div class="net">
+    <div class="net-row gold-row">
+      <div class="who">
+        <strong>Casas Goianita · Visa</strong>
+        <small>Cielo negociada · 31 dias por parcela (Líder Nacional)</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:973.10"><span>R$ 973,10</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row">
+      <div class="who">
+        C6 Pay
+        <small>Recebimento parcelado mês a mês</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:972.10"><span>R$ 972,10</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row mine">
+      <div class="who">
+        <strong>Casas Goianita · Mastercard</strong>
+        <small>Cielo negociada · 31 dias por parcela</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:970.10"><span>R$ 970,10</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row">
+      <div class="who">
+        Yelly
+        <small>Antecipado D+2</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:889.60"><span>R$ 889,60</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row">
+      <div class="who">
+        InfinitePay
+        <small>Antecipado D+2</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:876"><span>R$ 876,00</span></div>
+      </div>
+    </div>
+
+    <div class="net-row venture">
+      <div class="who">
+        <strong>VenturePay (Maquininha)</strong>
+        <small>Antecipado automático D+1 (12,53%)</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:874.70"><span>R$ 874,70</span></div>
+      </div>
+    </div>
+
+    <div class="net-row">
+      <div class="who">
+        VenturePay (Link/Online)
+        <small>Antecipado automático D+1 (15,36%)</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:846.40"><span>R$ 846,40</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row">
+      <div class="who">
+        Cielo Balcão
+        <small>Antecipado padrão público D+2</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:802.20"><span>R$ 802,20</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row">
+      <div class="who">
+        PagBank / Mercado Pago
+        <small>Liquidação mesmo dia</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:774.10"><span>R$ 774,10</span></div>
+      </div>
+    </div>
+    
+    <div class="net-row low">
+      <div class="who">
+        Rede (Itaú Balcão)
+        <small>Antecipado em 2 dias úteis</small>
+      </div>
+      <div class="net-track">
+        <div class="net-fill" style="--v:731.40"><span>R$ 731,40</span></div>
+      </div>
+    </div>
+    
+    <div class="axis">
+      <span></span>
+      <div class="ticks">
+        <span>R$ 0</span>
+        <span>R$ 250</span>
+        <span>R$ 500</span>
+        <span>R$ 750</span>
+        <span>R$ 1.000</span>
+      </div>
+    </div>
+  </div>
+  
+  <p class="note"><strong>Impacto de Margem:</strong> Entre a condição da Casas Goianita (Visa a R$ 973,10) e a VenturePay (R$ 874,70 em D+1), o lojista abre mão de ~R$ 98,40 por venda de R$ 1.000 se optar por antecipar em 24h. Em relação ao plano balcão da Rede (R$ 731,40), a diferença chega a <strong>R$ 241,70</strong> preservados na operação.</p>
+</section>
+
+<!-- 10. Escala -->
+<section class="slide" id="escala">
+  <div class="eyebrow"><span class="num">10</span><span>Alavancagem no Volume Mensal</span></div>
+  <h2>A dispersão tarifária corrói o resultado nas vendas longas</h2>
+  <p class="lead">O índice setorial de setembro de 2026 da Calculadora de Taxas evidencia a disparidade financeira que ocorre conforme o lojista expande o parcelamento em até 12 vezes.</p>
+  
+  <div class="scale">
+    <div class="stat">
+      <div class="v">R$ 552</div>
+      <div class="l">Custo mensal para giro de R$ 5.000 em 12x na adquirente mais competitiva</div>
+    </div>
+    <div class="stat hi">
+      <div class="v">R$ 1.658</div>
+      <div class="l">Custo mensal incorrido para o exato mesmo volume na adquirente mais onerosa</div>
+    </div>
+    <div class="stat">
+      <div class="v">15,83<small>%</small></div>
+      <div class="l">Taxa média ponderada de mercado no 12x entre as 10 principais maquininhas</div>
+    </div>
+  </div>
+  
+  <p>Varejistas com predominância de vendas à vista ou débito sentem impacto reduzido entre as marcas. Todavia, em setores de utilidades e bens duráveis onde o parcelamento em 10x ou 12x é preponderante, a escolha do plano define a sobrevivência da margem. Com a taxa Selic em patamar elevado (14,15% a.a.), o custo financeiro da antecipação é repassado integralmente aos lojistas descuidados.</p>
+  <p class="src">Fonte: <a href="https://www.calculadoradetaxas.com.br/indice-de-taxas/2026-09" target="_blank" rel="noopener">Índice Nacional de Taxas de Maquininha · Setembro de 2026</a>.</p>
+</section>
+
+<!-- 11. Recomendações -->
+<section class="slide" id="recomendacao">
+  <div class="eyebrow"><span class="num">11</span><span>Diretrizes Estratégicas para a Governança</span></div>
+  <h2>Recomendações e Próximos Passos Comerciais</h2>
+  
+  <div class="recs">
+    <div class="rec highlight">
+      <span class="who">Goianita · Ajuste Imediato no Pix da Castor</span>
+      <p><strong>Ação Prioritária:</strong> Solicitar formalmente à gerente Milene a unificação da taxa de Pix da Castor Utilidades (reduzindo de 0,99% para os 0,48% praticados nas Virtuais). A Castor já transacionou R$ 44.986,69 até 07/10 — superando a meta mensal em 50% logo na primeira semana — o que confere poder de barganha indiscutível.</p>
+    </div>
+    
+    <div class="rec highlight">
+      <span class="who">Goianita · Enquadramento do Novo EC (Filial)</span>
+      <p><strong>Blindagem Comercial:</strong> Condicionar a abertura do novo EC da filial física ao mesmo pacote negociado do grupo: Visa a 2,69% e Mastercard a 2,99% no 12x. Não permitir o enquadramento como "empresa sem faturamento", fato que no passado onerou a Castor com tarifas superiores a 3%.</p>
+    </div>
+
+    <div class="rec">
+      <span class="who">VenturePay como Benchmark de Antecipação &amp; E-commerce</span>
+      <p><strong>Uso Tático:</strong> A VenturePay se mostra competitiva para antecipação rápida (12,53% em D+1 na maquininha, bem inferior aos 19,78% da Cielo pública), além de oferecer tecnologia 3DS (chargeback zero) para vendas digitais e parcelamento estendido em até 24x (21,52%). Pode ser usada como balizador em renegociações com a Cielo ou como contingência para canais digitais.</p>
+    </div>
+    
+    <div class="rec">
+      <span class="who">Goianita · Monitoramento do "Vendeu, Tá na Conta"</span>
+      <p>A grade atual da Goianita já é a mais econômica do Brasil no fluxo sem antecipação. Caso a diretoria avalie migrar para liquidação em 24h via "Vendeu, Tá na Conta", exigir simulação contratual prévia por escrito: a antecipação automática da Cielo balcão eleva o custo para 19,78% no 12x.</p>
+    </div>
+    
+    <div class="rec">
+      <span class="who">Mercado · Cielo e Stone</span>
+      <p>Adquirentes tradicionais só são viáveis comercialmente sob contratos corporativos com volume expressivo. Nas tabelas abertas de balcão, situam-se invariavelmente entre as opções mais caras do país.</p>
+    </div>
+    
+    <div class="rec">
+      <span class="who">Operações com Caixa Próprio</span>
+      <p>Para empresas que possuem liquidez e podem aguardar o fluxo das parcelas, o modelo de recebimento mês a mês (como C6 Pay ou SumUp) representa a melhor alternativa pública, tarifando em 2,79% a 3,49% no 12x.</p>
+    </div>
+  </div>
+  
+  <h3>Pontos de Atenção na Gestão Contratual</h3>
+  <ul class="cautions">
+    <li>Os dados de mercado foram tabulados a partir da Calculadora de Taxas, plataforma independente de monitoramento contínuo de meios de pagamento no Brasil, e das tabelas institucionais da VenturePay e da Cielo.</li>
+    <li>Bandeiras regionais e corporativas (como Elo e Amex) demandam acompanhamento regular por apresentarem spreads adicionais em relação ao duopólio Visa/Mastercard na maioria das adquirentes (na VenturePay são unificadas).</li>
+    <li>Empresas com faturamento acima de R$ 100 mil/mês possuem prerrogativa de renegociação contínua de spreads com gerências bancárias e adquirentes como VenturePay e Cielo.</li>
+    <li>As taxas de balcão devem ser revalidadas no portal de cada credenciadora no momento de eventuais contratações complementares.</li>
+  </ul>
+</section>
+
+<!-- 12. Fontes -->
+<section class="slide" id="fontes">
+  <div class="eyebrow"><span class="num">12</span><span>Base Documental e Fontes Auditadas</span></div>
+  <h2>Fontes Oficiais Consultadas em Outubro de 2026</h2>
+  
+  <ul class="sources">
+    <li>PLANO DE TARIFAS CIELO - VIRTUAIS.pdf<span>Portal Minha Conta Cielo · Contrato Plano Seu Jeito · Auditado em 07/10/2026</span></li>
+    <li>PLANO DE TARIFAS CIELO - CASTOR UTILIDADES.pdf<span>Portal Minha Conta Cielo · Contrato Plano Postecipado · Auditado em 07/10/2026</span></li>
+    <li>Taxas VenturePay.pdf<span>Material Institucional e Tabela Oficial de Precificação VenturePay (CNPJ 53.768.953/0001-60) · Outubro/2026</span></li>
+    <li>Extrato Oficial de Faturamento · Castor Utilidades<span>Relatório gerencial do Portal Cielo registrando R$ 44.986,69 em 07/10/2026</span></li>
+    <li>Comprovantes Operacionais Amex e Diners<span>Controladoria Casas Goianita (Eryca e Leila) · Transmissão oficial em 07/10/2026</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/comparativo-de-taxas/antecipado/ate-2-dias-uteis/pessoa_juridica/master_visa" target="_blank" rel="noopener">Comparativo Antecipado até 2 Dias Úteis · PJ</a><span>Calculadora de Taxas · Base referencial de 01/10/2026</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/comparativo-de-taxas/antecipado/mesmo-dia/pessoa_juridica/master_visa" target="_blank" rel="noopener">Comparativo Antecipado no Mesmo Dia · PJ</a><span>Calculadora de Taxas · Base referencial de 01/10/2026</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/comparativo-de-taxas/nao-antecipado/30-em-30-dias/pessoa_juridica/master_visa" target="_blank" rel="noopener">Comparativo Recebimento Parcelado (30 em 30 Dias) · PJ</a><span>Calculadora de Taxas · Atualizado em 15/09/2026</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/indice-de-taxas/2026-09" target="_blank" rel="noopener">Índice Geral de Taxas de Maquininha · Setembro de 2026</a><span>Calculadora de Taxas · Média ponderada de mercado</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/public/rede" target="_blank" rel="noopener">Grade Tarifária Oficial Rede 2026</a><span>Calculadora de Taxas · Portal de monitoramento</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/public/stone" target="_blank" rel="noopener">Parâmetros de Mercado Stone 2026</a><span>Calculadora de Taxas · Levantamento analítico</span></li>
+    <li><a href="https://www.calculadoradetaxas.com.br/public/blog/qual-maquininha-infinitepay-comprar" target="_blank" rel="noopener">Estudo de Grades Tarifárias InfinitePay 2026</a><span>Calculadora de Taxas · Levantamento comparativo</span></li>
+  </ul>
+</section>
+
+</main>
+
+<!-- Navegação Flutuante -->
+<nav class="nav" aria-label="Navegação entre slides">
+  <button type="button" id="prev" aria-label="Slide anterior">↑</button>
+  <span class="count" id="count">01 / 12</span>
+  <button type="button" id="next" aria-label="Próximo slide">↓</button>
+</nav>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count');
+  var total = String(slides.length).padStart(2, '0');
+  var progressBar = document.getElementById('progress-bar');
+
+  function current() {
+    var mid = window.innerHeight * 0.4, idx = 0;
+    slides.forEach(function (s, i) { if (s.getBoundingClientRect().top <= mid) idx = i; });
+    return idx;
+  }
+  function update() {
+    count.textContent = String(current() + 1).padStart(2, '0') + ' / ' + total;
+    if (progressBar) {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (height > 0) {
+        progressBar.style.width = (winScroll / height * 100) + '%';
+      }
+    }
+  }
+  function go(d) {
+    var i = Math.max(0, Math.min(slides.length - 1, current() + d));
+    slides[i].scrollIntoView({ block: 'start' });
+  }
+  document.getElementById('prev').addEventListener('click', function () { go(-1); });
+  document.getElementById('next').addEventListener('click', function () { go(1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.closest && e.target.closest('input, textarea')) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+  });
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+</body>
+</html>
